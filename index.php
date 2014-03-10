@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js ie8"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Project IA</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<?php /*
+
+//  /$$   /$$ /$$$$$$$$ /$$      /$$ /$$             /$$$$$$  /$$$$$$ 
+// | $$  | $$|__  $$__/| $$$    /$$$| $$            |_  $$_/ /$$__  $$
+// | $$  | $$   | $$   | $$$$  /$$$$| $$              | $$  | $$  \ $$
+// | $$$$$$$$   | $$   | $$ $$/$$ $$| $$              | $$  | $$$$$$$$
+// | $$__  $$   | $$   | $$  $$$| $$| $$              | $$  | $$__  $$
+// | $$  | $$   | $$   | $$\  $ | $$| $$              | $$  | $$  | $$
+// | $$  | $$   | $$   | $$ \/  | $$| $$$$$$$$       /$$$$$$| $$  | $$
+// |__/  |__/   |__/   |__/     |__/|________/      |______/|__/  |__/
+                                                                   
+Put the path to your nested OL here:                                                                   
+                                                                   
+*/
+
+$sitemap = "sitemap.php";
+
+?>	
+
+	<div class="wrapper open">
+
+		<div class="flow">
+			<h1>Project Title</h1>
+			<p>Proposed IA v1.2 <em>(information architecture)</em></p>
+			<small>Updated November 24, 2013</small>
+			<hr>
+			<div class="hierarchy">
+				<?php include($sitemap); ?>
+			</div>
+		</div><!-- flow -->
+
+		<a href="#?" class="tool-box tool-toggle">
+			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBCREE3RDk5NDg2NjExRTI4NkQzRjcyNDIyM0NCQThBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBCREE3RDlBNDg2NjExRTI4NkQzRjcyNDIyM0NCQThBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEJEQTdEOTc0ODY2MTFFMjg2RDNGNzI0MjIzQ0JBOEEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEJEQTdEOTg0ODY2MTFFMjg2RDNGNzI0MjIzQ0JBOEEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5Vd8/9AAABmUlEQVR42pSUPUsDQRCGz1xEjdeIkkIItoaDFH4UFgp2opXC2ViIRTqxsUlnETCiRMW/YCVELARJJ4idiliptQgiSEDCgYXBd2BOxnH3chl4uNvdmfdmb2e2KwgCx2AemAOX4EOtDYJZUAdNHZhyzHYKSuAQ5MR8judK7PPP0hbBb37mwRl4FGPt0zZDH2TVXF6JOezjtxMcARUnuVU45s+We8AmGAITINOB4DA4BrfgHRyQ4AJYsgTQvzsCdzweB+tqq5TATOSfijnpa7AKbkCLofc1XjNZN4nVQNWwWGURba0Y/1qU3Ykq0hfGZnq9yRq/26WvhsLhK8GBSJ8w2k1K1FlWdYQXI+apDqLYyUhwAGypACqlYoxgkX2kbYOC6/v+Bl6mDUEF0A/uRZuRCPmvGPz7QIPq8BwsWzKhwEXwxONRS+F/glc65TQXb9Qh85xBRhXumOWDIW+1burlkGtyr4PW25FittuGfkEjgRj5XCS9YF2RdRlMMWVRr64xEKdsmn8AvWAXXIlefuaLgk50H7zpwB8BBgAiFlK7sUZk8wAAAABJRU5ErkJggg==" alt="Tools">
+		</a>
+		<div class="tools">
+			<a class="tool-close tool-toggle">Close</a>
+			<a class="toggle-overview" href="#?">Toggle Overview Panel <em>(esc)</em></a>
+			<a id="toggle-first" href="#?">Toggle First Level items</a>
+			<a id="toggle-second" href="#?">Toggle Second Level items</a>
+			<a id="show-all" href="#?">Expand All</a>
+		</div><!-- tools -->
+
+		<div class="overview">
+			<div class="toggle-overview tab">
+				. . .
+			</div>
+			<h2>Overview</h2>
+			<div class="hierarchy">
+				<?php include($sitemap); ?>
+			</div>
+		</div><!-- overview -->
+
+	</div><!-- wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery.js"><\/script>')</script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
