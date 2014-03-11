@@ -1,34 +1,43 @@
 $(function(){
 
-	// Add necessary classes to hierarchy to make styles work. The goal is to make copy/pastable lists
-	$('.hierarchy > ol').first().addClass('ia group');
-	$('.hierarchy .ia li > ol').first().addClass('primary group');
-	$('.hierarchy li').contents().filter(function() {
-	    return this.nodeType === 3 && $.trim(this.nodeValue).length;
-	}).wrap('<span/>');
+	$.get('sitemap.html', function(data) {
+		$('.hierarchy').each(function() {
+			$(this).append($(data));
+		});
+
+		// Add necessary classes to hierarchy to make styles work. The goal is to make copy/pastable lists
+		$('.hierarchy > ol').first().addClass('ia group');
+		$('.hierarchy .ia li > ol').first().addClass('primary group');
+		$('.hierarchy li').contents().filter(function() {
+		    return this.nodeType === 3 && $.trim(this.nodeValue).length;
+		}).wrap('<span/>');
 
 
 
-	// If there are sub pages in an LI give it a class of parent.
-	$('.ia li').each(function() {
-		if ( $(this).find('ol,ul').length ) {
-		   $(this).addClass('parent');
-		}
+		// If there are sub pages in an LI give it a class of parent.
+		$('.ia li').each(function() {
+			if ( $(this).find('ol,ul').length ) {
+			   $(this).addClass('parent');
+			}
+		});
+
+
+
+		// Set horizontal scroll!
+		var sum = 0;
+		$('.flow .primary > li').each( function(){ 
+			sum += $(this).outerWidth(); 
+		});
+		$('.flow .primary').width( sum + 100 );
+
+		// Set it the way I want it to look
+		$('.overview .tab, #toggle-second').click();
 	});
-
-
-
-	// Set horizontal scroll!
-	var sum = 0;
-	$('.flow .primary > li').each( function(){ 
-		sum += $(this).outerWidth(); 
-	});
-	$('.flow .primary').width( sum + 100 );
 
 
 
 	//Expand / collapse overview;
-	$('.toggle-overview').click(function() {
+	$('body').on('click', '.toggle-overview', function() {
 		var overviewWidth = $('.overview').outerWidth();
 
 	    if ($('.wrapper').hasClass('open') ) {
@@ -78,13 +87,9 @@ $(function(){
 		$('.flow .primary ul, .flow .primary ol').slideDown();
 	});
 
-	$('.parent a, .parent span').click(function() {
+	$('body').on('click', '.parent a, .parent span', function() {
 		$(this).next('ol, ul').slideToggle();
 	});
-
-
-	// Set it the way I want it to look
-	$('.overview .tab, #toggle-second').click();
 
 
 }); //jQuery
